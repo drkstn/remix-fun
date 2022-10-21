@@ -1,5 +1,5 @@
 import { json } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
 import { getPlanets } from "~/services/data.server";
 
 export const loader = async () => {
@@ -11,10 +11,12 @@ export default function Index() {
   const planets = useLoaderData();
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+    <div className="p-4">
+      <h1 className="text-3xl font-bold">Planets</h1>
       {planets.map((planet) => (
-        <p key={planet._id}>{planet.name}</p>
+        <p key={planet._id}>
+          <Link to={planet.name}>{planet.name}</Link>
+        </p>
       ))}
     </div>
   );

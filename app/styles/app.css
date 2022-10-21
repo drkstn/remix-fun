@@ -510,6 +510,14 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.p-4 {
+  padding: 1rem;
+}
+
+.pl-4 {
+  padding-left: 1rem;
+}
+
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -517,8 +525,4 @@ video {
 
 .font-bold {
   font-weight: 700;
-}
-
-.underline {
-  text-decoration-line: underline;
 }
