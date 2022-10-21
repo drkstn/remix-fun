@@ -1,10 +1,14 @@
 import { useLoaderData } from "@remix-run/react";
 import { getPlanet } from "~/services/data.server";
+import invariant from "tiny-invariant";
+import { json } from "@remix-run/node";
 
 export const loader = async ({ params }) => {
+  invariant(params.planet, "expected params.planet");
   const planet = await getPlanet(params.planet);
+  invariant(planet, "Not found");
 
-  return planet;
+  return json(planet);
 };
 
 export default function Index() {
