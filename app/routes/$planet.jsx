@@ -1,4 +1,4 @@
-import { useCatch, useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 import { getPlanet } from "~/services/data.server";
 import invariant from "tiny-invariant";
 import { json } from "@remix-run/node";
