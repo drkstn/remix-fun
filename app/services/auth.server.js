@@ -20,6 +20,7 @@ authenticator.use(
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       scope: ["openid email profile"],
+      prompt: "select_account",
       // callbackURL: `http://localhost:3000/auth/${SocialsProvider.GOOGLE}/callback`,
       callbackURL:
         process.env.NODE_ENV === "development"
