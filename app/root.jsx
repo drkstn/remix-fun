@@ -1,4 +1,5 @@
 import {
+  useCatch,
   Links,
   LiveReload,
   Meta,
@@ -31,6 +32,30 @@ export default function App() {
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
+      </body>
+    </html>
+  );
+}
+
+export function CatchBoundary() {
+  const caught = useCatch();
+  return (
+    <html>
+      <head>
+        <title>Oops!</title>
+        <Meta />
+        <Links />
+      </head>
+      <body>
+        <div className="p-4">
+          <h1 className="text-3xl font-bold">
+            {caught.status} {caught.data}
+          </h1>
+          <h2 className="text-xl font-bold">
+            Oops! We couldn't find that page!
+          </h2>
+        </div>
+        <Scripts />
       </body>
     </html>
   );

@@ -1,4 +1,4 @@
-import { useLoaderData } from "@remix-run/react";
+import { useCatch, useLoaderData } from "@remix-run/react";
 import { getPlanet } from "~/services/data.server";
 import invariant from "tiny-invariant";
 import { json } from "@remix-run/node";
@@ -6,7 +6,12 @@ import { json } from "@remix-run/node";
 export const loader = async ({ params }) => {
   invariant(params.planet, "expected params.planet");
   const planet = await getPlanet(params.planet);
-  invariant(planet, "Not found");
+
+  if (!planet) {
+    throw new Response("Not Found", {
+      status: 404,
+    });
+  }
 
   return json(planet);
 };
