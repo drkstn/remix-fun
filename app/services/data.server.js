@@ -12,6 +12,6 @@ export async function getPlanets() {
 }
 
 export async function getPlanet(name) {
-  const res = await Planet.findOne({ name }).exec();
+  const res = await Planet.findOne({ name });
   return res;
 }
