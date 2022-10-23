@@ -23,7 +23,7 @@ export default function Index() {
   const { min, max, mean } = surfaceTemperatureC;
 
   return (
-    <div className="p-4">
+    <div>
       <h1 className="text-3xl font-bold">{name}</h1>
       <p>Position: {orderFromSun}</p>
       <p>Rings: {hasRings ? "Yes" : "No"}</p>

@@ -11,13 +11,15 @@ export default function Index() {
   const planets = useLoaderData();
 
   return (
-    <div className="p-4">
+    <div>
       <h1 className="text-3xl font-bold">Planets</h1>
       {planets.map((planet) => (
         <p key={planet._id}>
           <Link to={planet.name}>{planet.name}</Link>
         </p>
       ))}
+      <hr />
+      <Link to="/api/new">New Planet</Link>
     </div>
   );
 }

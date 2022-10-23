@@ -1,3 +1,4 @@
+import { json } from "@remix-run/node";
 import { Form, useLoaderData } from "@remix-run/react";
 
 import { authenticator } from "../services/auth.server.js";
@@ -28,21 +29,19 @@ export const loader = async ({ request }) => {
     failureRedirect: "/login",
   });
 
-  return {
-    user,
-  };
+  return json(user);
 };
 
 const Dashboard = () => {
   // getting user from loader data
-  const { user } = useLoaderData();
+  const user = useLoaderData();
 
   // displaying authenticated user data
   return (
     <div style={CONTAINER_STYLES}>
       <h1>You are LoggedIn</h1>
       <p>{user.displayName}</p>
-      <Form reloadDocument action="/logout" method="post">
+      <Form action="/logout" method="post">
         <button style={BUTTON_STYLES}>Logout</button>
       </Form>
     </div>

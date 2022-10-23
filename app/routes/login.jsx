@@ -23,7 +23,6 @@ const LoginPage = () => {
   return (
     <div>
       <Form
-        reloadDocument
         method="post"
         action={`/auth/${SocialsProvider.GOOGLE}`}
         style={CONTAINER_STYLES}
